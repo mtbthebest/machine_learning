@@ -4,6 +4,7 @@ import os
 os.environ['TF_CPP_MIN_LOG_LEVLEL'] = '2'
 import tensorflow as tf
 import numpy as np
+from tensorflow.examples.tutorials.mnist import input_data
 
 n_inputs = 28*28
 n_hidden1 = 300
@@ -12,7 +13,7 @@ n_outputs = 10
 learning_rate = 0.01
 
 X= tf.placeholder(dtype = tf.float32, shape = (None, n_inputs), name = 'X')
-y= tf.placeholder(dtype = tf.float32, shape = (None), name = 'y')
+y= tf.placeholder(dtype = tf.int64, shape = (None), name = 'y')
 
 def neuron_layer(X, n_neurons, name, activation=None):
     with tf.name_scope(name):
@@ -46,3 +47,17 @@ with tf.name_scope("eval"):
 init = tf.global_variables_initializer()
 saver = tf.train.Saver()
 
+if __name__ == '__main__':
+    mnist = input_data.read_data_sets("/tmp/data")
+    n_epochs=400
+    batch_size = 5
+    with tf.Session() as sess:
+        init.run()
+        for epoch in range(n_epochs):
+            for iteration in range(mnist.train.num_examples // batch_size):
+                X_batch, y_batch = mnist.train.next_batch(batch_size)
+                sess.run(training_op, feed_dict = {X:X_batch, y:y_batch})
+            acc_train = accuracy.eval(feed_dict = {X:X_batch, y:y_batch})
+            acc_test = accuracy.eval(feed_dict = {X:mnist.test.images, y:mnist.test.labels})
+            print(epoch,"Training accuracy",acc_train, "Test accuracy", acc_test   )
+        save_path = saver.save(sess,"./my_model_final.ckpt")
