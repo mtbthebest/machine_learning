@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="PYTHON_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$" />
+    <content url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow">
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/batching" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/bayesflow" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/cloud" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/cmake" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/compiler" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/copy_graph" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/crf" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/cudnn_rnn" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/data" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/deprecated" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/distributions" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/factorization" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/ffmpeg" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/framework" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/graph_editor" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/grid_rnn" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/hooks" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/image" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/imperative" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/input_pipeline" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/integrate" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/keras" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/kernel_methods" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/labeled_tensor" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/layers" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/learn" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/legacy_seq2seq" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/linalg" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/linear_optimizer" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/lookup" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/losses" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/memory_stats" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/metrics" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/nccl" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/ndlstm" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/nn" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/opt" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/quantization" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/rnn" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/saved_model" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/seq2seq" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/session_bundle" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/signal" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/slim" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/solvers" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/sparsemax" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/specs" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/staging" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/stat_summarizer" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/stateless" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/tensor_forest" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/tensorboard" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/testing" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/tfprof" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/training" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/contrib/util" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/core" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/core/example" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/core/framework" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/core/lib" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/core/protobuf" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/core/util" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/examples" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/examples/tutorials" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/include" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/include/Eigen" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/include/external" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/include/google" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/include/tensorflow" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/include/third_party" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/include/unsupported" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/python" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/python/client" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/python/debug" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/python/estimator" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/python/feature_column" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/python/framework" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/python/grappler" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/python/layers" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/python/lib" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/python/ops" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/python/platform" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/python/saved_model" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/python/summary" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/python/tools" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/python/training" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/python/user_ops" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/python/util" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/tensorboard" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/tensorboard/backend" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/tensorboard/dist" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/tensorboard/lib" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/tensorboard/plugins" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/tensorflow" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/tensorflow/tools" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/tools" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/tools/pip_package" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/ml/lib/python2.7/site-packages/tensorflow/tools/tfprof" isTestSource="false" />
+    </content>
+    <orderEntry type="jdk" jdkName="Python 2.7.6 virtualenv at ~/ml" jdkType="Python SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="TestRunnerService">
+    <option name="PROJECT_TEST_RUNNER" value="Unittests" />
+  </component>
+</module>
