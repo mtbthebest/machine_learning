@@ -42,13 +42,17 @@ with tf.name_scope("new_train"):
     optimizer = tf.train.GradientDescentOptimizer(learning_rate)
     training_op = optimizer.minimize(loss)
 
+reuse_vars = tf.get_collection(tf.GraphKeys.GLOBAL_VARIABLES,
+                               scope="hidden[123]") 
+reuse_vars_dict = dict([(var.op.name, var) for var in reuse_vars])
+restore_saver = tf.train.Saver(reuse_vars_dict) 
 init = tf.global_variables_initializer()
 new_saver = tf.train.Saver()
 
 with tf.Session() as sess:
     mnist = input_data.read_data_sets("/tmp/data")
     init.run()
-    saver.restore(sess, "./my_model_final.ckpt")
+    restore_saver.restore(sess, "./my_model_final.ckpt")
    
     n_epochs = 10
     batch_size = 300
