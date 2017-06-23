@@ -47,15 +47,10 @@ with tf.name_scope("eval"):
 init = tf.global_variables_initializer()
 saver = tf.train.Saver()
 
-
-
-
 if __name__ == '__main__':
     mnist = input_data.read_data_sets("/tmp/data")
     n_epochs=400
     batch_size = 5
-    """
-        Training phase
     with tf.Session() as sess:
         init.run()
         for epoch in range(n_epochs):
@@ -66,14 +61,3 @@ if __name__ == '__main__':
             acc_test = accuracy.eval(feed_dict = {X:mnist.test.images, y:mnist.test.labels})
             print(epoch,"Training accuracy",acc_train, "Test accuracy", acc_test   )
         save_path = saver.save(sess,"./my_model_final.ckpt")
-    """
-    """
-        Test phase
-    """
-    with tf.Session() as sess:
-        saver.restore(sess,"./my_model_final.ckpt")
-        X_new_scaled = mnist.test.images[0:20]
-        Z = logits.eval(feed_dict = {X: X_new_scaled})
-        y_pred= np.argmax(Z, axis=1)
-        print ("predicted classes: " , y_pred)
-        print ("actual classes: ", mnist.test.labels[0:20])
