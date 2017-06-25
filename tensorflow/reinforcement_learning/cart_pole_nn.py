@@ -6,6 +6,7 @@ os.environ['TF_CPP_MIN_LOG_LEVLEL'] = '2'
 import numpy as np
 from tensorflow.contrib.layers import variance_scaling_initializer
 import tensorflow as tf
+import matplotlib.pyplot as plt
 
 tf.reset_default_graph()
 
@@ -31,6 +32,21 @@ training_op = optimizer.minimize(cross_entropy)
 init = tf.global_variables_initializer()
 saver = tf.train.Saver()
 
+def render_policy_net(model_path, action, X, n_max_steps = 1000):
+    frames = []
+    env = gym.make("CartPole-v0")
+    obs = env.reset()
+    with tf.Session() as sess:
+        saver.restore(sess, model_path)
+        for step in range(n_max_steps):
+            img = render_cart_pole(env, obs)
+            frames.append(img)
+            action_val = action.eval(feed_dict={X: obs.reshape(1, n_inputs)})
+            obs, reward, done, info = env.step(action_val[0][0])
+            if done:
+                break
+    env.close()
+    return framess
 
 if __name__ == '__main__':
     n_environments = 10
@@ -48,5 +64,7 @@ if __name__ == '__main__':
                 observations[env_index] = obs if not done else env.reset()
         saver.save(sess, "./my_policy_net_basic.ckpt")
 
-    for env in envs:
-        env.close()
+   
+        frames = render_policy_net("./my_policy_net_basic.ckpt", action, X)
+        video = plot_animation(frames)
+        plt.show()
