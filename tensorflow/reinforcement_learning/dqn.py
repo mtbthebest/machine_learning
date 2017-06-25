@@ -152,7 +152,7 @@ with tf.Session() as sess:
         next_q_values = actor_q_values.eval(feed_dict={X_state: X_next_state_val})
         y_val = rewards + continues * discount_rate * np.max(next_q_values, axis=1, keepdims=True)
         training_op.run(feed_dict={X_state: X_state_val, X_action: X_action_val, y: y_val})
-
+        
         # Regularly copy critic to actor
         if step % copy_steps == 0:
             copy_critic_to_actor.run()
