@@ -134,8 +134,9 @@ with tf.Session() as sess:
 
         # Actor evaluates what to do
         q_values = actor_q_values.eval(feed_dict={X_state: [state]})
+        print('q: ', q_values)
         action = epsilon_greedy(q_values, step)
-
+        print('q: ', action)
         # Actor plays
         obs, reward, done, info = env.step(action)
         next_state = preprocess_observation(obs)
