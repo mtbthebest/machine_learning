@@ -9,7 +9,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-
 try:
     from pyglet.gl import gl_info
     openai_cart_pole_rendering = True   # no problem, let's use OpenAI gym's rendering function
