@@ -9,84 +9,103 @@ import numpy as np
 #Parameters
 learning_rate = 0.01
 training_epochs = 1000
-batch_size = 100
+batch_size =100
 display_step = 1
 
-neuron_1 = 400
-neuron_2 = 300
+neuron_1 = 500
+neuron_2 = 400
 neuron_3 = 10
 
 SUM_DIR = './mnist_tens/summary'
-TRAIN_DIR = './mnist_tens/train'
+TRAIN_DIR = './mnist_tens/model.ckpt'
 graph = tf.Graph()
 
 
 
-# def layer(input_, weights_name, bias_name, weights_shape, bias_shape):
-        
-#         with tf.variable_scope('variables') as scope:          
-        
-#             W = tf.get_variable(weights_name, weights_shape)
-            
-#             b = tf.get_variable(bias_name, bias_shape)
-            
-#             Out =  tf.nn.softmax(tf.add(tf.matmul(input_, W) , b))
-            
-#             return Out
+tf_graph = tf.Graph()
 
-x = tf.placeholder(tf.float32, [None, 784])
-y = tf.placeholder(tf.float32, [None, 10])
+with tf_graph.as_default():
 
-# hidden_1 = layer(x, 'w1','b1',(784, neuron_1), (neuron_1))
+    def layer(input_, weights_shape, bias_shape, weight_name, bias_name):
+        
+        with tf.variable_scope('variables'):
+            W = tf.get_variable(name= weight_name, initializer=tf.truncated_normal(shape=weights_shape, stddev= 2/np.sqrt(784)))
+            b = tf.get_variable(name= bias_name, initializer=tf.zeros(bias_shape))
+        
+        return tf.nn.relu(tf.add(tf.matmul(input_, W), b))
     
-# hidden_2 = layer(hidden_1, 'w2', 'b2',(neuron_1, neuron_2), (neuron_2))
+    with tf.name_scope('placeholder'):
+        x = tf.placeholder(tf.float32, [None, 784], name= 'x')
+        y = tf.placeholder(tf.float32, [None, 10], name= 'y')
 
-# output = layer(hidden_2, 'w3', 'b3',(neuron_2, neuron_3), (neuron_3))
-W = tf.get_variable('w',[784,10])
+    with tf.name_scope('layers'):
+        hidden_1 = layer(x, [784, neuron_1], [neuron_1],'w1','b1')    
+        hidden_2= layer(hidden_1,[neuron_1, neuron_2], [neuron_2],'w2','b2')
+        output= layer(hidden_2,[neuron_2, neuron_3], [neuron_3],'w3','b3') 
 
-b = tf.get_variable('b', [10])
+    with tf.name_scope('loss'):
+        xentropy = tf.nn.softmax_cross_entropy_with_logits(logits=output, labels=y)
+        loss = tf.reduce_mean(xentropy)
+        tf.summary.scalar('loss', loss)
 
-output = tf.nn.softmax(tf.add(tf.matmul(x, W), b))
-xentropy = tf.nn.softmax_cross_entropy_with_logits(logits=output, labels=y)
-loss = tf.reduce_mean(xentropy)
+    with tf.name_scope('optimizer'):
+        global_step = tf.Variable(0, trainable=False,name='global_step')
+        optimizer = tf.train.GradientDescentOptimizer(learning_rate)
+        train_op = optimizer.minimize(loss, global_step)
+
+    with tf.name_scope('accuracy'):
+        correct_prediction = tf.equal(tf.argmax(output, 1), tf.argmax(y, 1))
+        accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
+        tf.summary.scalar('accuracy', accuracy)
+
+    with tf.name_scope('initializer'):
+        init = tf.global_variables_initializer()
+        saver = tf.train.Saver()
+        summary_op = tf.summary.merge_all()
+    
         
-optimizer = tf.train.GradientDescentOptimizer(learning_rate)
-train_op = optimizer.minimize(loss)
-
-tf.summary.scalar('loss', loss)
-
-init = tf.global_variables_initializer()
-saver = tf.train.Saver()
-
-summary_op = tf.summary.merge_all()
-
-with tf.Session(graph=tf.get_default_graph()) as sess:
+with tf.Session(graph=tf_graph) as sess:
+   
     mnist = input_data.read_data_sets("MNIST_data", one_hot=True)
     X_train = mnist.train.images
     X_test = mnist.test.images
     Y_train = mnist.train.labels.astype("int")
-    Y_test = mnist.test.labels.astype("int")
+    Y_test = mnist.test.labels.astype("int")    
+   
     
-    summary_writer = tf.summary.FileWriter(logdir=SUM_DIR, graph=tf.get_default_graph())
+    total_iterations = 0
+    # saver = tf.train.import_meta_graph('./mnist_tens/train.meta')
+    # for op in tf.get_default_graph().get_operations():
+    #     print op.name
 
+    if os.path.isfile('./mnist_tens/checkpoint'):
+        print 'Restoring'
+        saver.restore(sess,TRAIN_DIR)
+    summary_writer = tf.summary.FileWriter(logdir=SUM_DIR, graph=tf_graph)    
     
+       
     sess.run([init])
-    
+
     for epoch in range(training_epochs):
-        avg_cost = 0
+        
         total_batch = int(mnist.train.num_examples / batch_size)
         for i in range(total_batch):
             mbatch_x , mbatch_y = mnist.train.next_batch(batch_size)
-            # sess.run(hidden_2,{ x:mbatch_x})
-            # print 'y' + str(mbatch_y.shape)
-            # a = sess.run(output,{ x:mbatch_x})
-            # print 'output' + str(a.shape)
+           
+            train, cost_function, exactitude , summary= sess.run([train_op,loss,accuracy,summary_op], feed_dict={x: mbatch_x, y:mbatch_y})
+            total_iterations +=1
+            
+            step = tf.train.global_step(sess, global_step)
+            summary_writer.add_summary(summary, global_step= step)
+            
+            print step
 
-            # print tf.global_variables()
-            # a = sess.run(loss,{x: mbatch_x, y:mbatch_y})
-            # print a
-            train, cost_function, summary = sess.run([train_op,loss,summary_op], feed_dict={x: mbatch_x, y:mbatch_y})
-            print cost_function
+            print ('Iterations %d, loss: %.6f'%(total_iterations, cost_function))
+        
+        print('Saving epoch {0}'.format(epoch))
+        saver.save(sess,TRAIN_DIR)
+     
+          
             # print W
             # train_operation, accuracy_run, minibatch_cost = sess.run(
             #     fetches=[train_op, accuracy, loss], feed_dict={x: mbatch_x, y: mbatch_y})
