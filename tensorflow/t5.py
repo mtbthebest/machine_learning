@@ -92,7 +92,7 @@ with tf.Session(graph=tf_graph) as sess:
         for i in range(total_batch):
             mbatch_x , mbatch_y = mnist.train.next_batch(batch_size)
            
-            train, cost_function, exactitude , summary= sess.run([train_op,loss,accuracy,summary_op], feed_dict={x: mbatch_x, y:mbatch_y})
+            train, cost_function, acc , summary= sess.run([train_op,loss,accuracy,summary_op], feed_dict={x: mbatch_x, y:mbatch_y})
             total_iterations +=1
             
             step = tf.train.global_step(sess, global_step)
