@@ -22,11 +22,11 @@ TRAIN_DIR = './mnist_tens/train'
 graph = tf.Graph()
 
 
-a = np.array([[1,0],[1,0]])
-b = np.array([[0,0],[0,0]])
+a = np.array([[2.0,0.0],[4.0,2.0]])
+b = np.array([[1.0,0.0],[1.0,0.0]])
 c = tf.subtract(a,b)
 d = tf.square(c)
-e = tf.reduce_mean(d)
+e = tf.reduce_mean(d, axis=0)
 
 with tf.Session() as sess:
         print sess.run([d,e])
