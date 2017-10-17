@@ -74,17 +74,21 @@ with tf.Session(graph=tf_graph) as sess:
    
     
     total_iterations = 0
-    # saver = tf.train.import_meta_graph('./mnist_tens/train.meta')
+    # saved= tf.train.import_meta_graph('./mnist_tens/model.ckpt.meta')
+    # a = []
     # for op in tf.get_default_graph().get_operations():
-    #     print op.name
-
+    #     a.append(op.name)
+    #     # print op.name
+    # b = tf.get_default_graph().get_operation_by_name('placeholder/x')
+    sess.run([init])
+    summary_writer = tf.summary.FileWriter(logdir=SUM_DIR, graph=tf_graph)    
+    
     if os.path.isfile('./mnist_tens/checkpoint'):
         print 'Restoring'
         saver.restore(sess,TRAIN_DIR)
-    summary_writer = tf.summary.FileWriter(logdir=SUM_DIR, graph=tf_graph)    
     
        
-    sess.run([init])
+    
 
     for epoch in range(training_epochs):
         
@@ -103,7 +107,7 @@ with tf.Session(graph=tf_graph) as sess:
             print ('Iterations %d, loss: %.6f'%(total_iterations, cost_function))
         
         print('Saving epoch {0}'.format(epoch))
-        saver.save(sess,TRAIN_DIR)
+        saver.save(sess,'./mnist_tens/mynew.ckpt')
      
           
             # print W
