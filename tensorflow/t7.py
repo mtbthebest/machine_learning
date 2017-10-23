@@ -85,13 +85,16 @@ if __name__ == '__main__':
         tf.global_variables_initializer().run()
         coord = tf.train.Coordinator()
         threads = tf.train.start_queue_runners(coord=coord)
-  
-        while True:
-            try:
+        a = list()
+
+        for i in range(50000):
                 features, labels = sess.run([key,value])
                 val = decode_csv(labels)
-                print val[0]
-            except tf.errors.OutOfRangeError:
-                break
+                a.append(val[0])
+                b.append(val[1])
+
+        np.save('/home/mtb/test',np.array(a))
         coord.request_stop()
         coord.join(threads)
+               
+       
