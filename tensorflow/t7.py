@@ -73,7 +73,7 @@ def decode_csv(value):
 
 
 
-filename_queue = tf.train.string_input_producer([filename])
+filename_queue = tf.train.string_input_producer([filename], capacity=1000)
 line_reader = tf.TextLineReader(skip_header_lines=1)
 key, value = line_reader.read(filename_queue)
 
