@@ -48,28 +48,30 @@ file_queue_length= [53567, 41820,94691,41931,44887,54483,57915,54964,80191,14271
 
 
 
-# filename_queue = tf.train.string_input_producer([filename], capacity=1000)
-# line_reader = tf.TextLineReader(skip_header_lines=1)
-# key, value = line_reader.read(filename_queue)
+filename_queue = tf.train.string_input_producer(filename)
+line_reader = tf.TextLineReader(skip_header_lines=1)
+key, value = line_reader.read(filename_queue)
 
-# # record_defaults = [[0.0], [0.0]]
+# record_defaults = [[0.0], [0.0]]
 
-# # inputs, outputs = tf.decode_csv(records=value, record_defaults= record_defaults)
-# if __name__ == '__main__':
-#     with tf.Session() as sess:
-#         tf.global_variables_initializer().run()
-#         coord = tf.train.Coordinator()
-#         threads = tf.train.start_queue_runners(coord=coord)
-#         a = list()
+# inputs, outputs = tf.decode_csv(records=value, record_defaults= record_defaults)
+if __name__ == '__main__':
+    with tf.Session() as sess:
+        tf.global_variables_initializer().run()
+        coord = tf.train.Coordinator()
+        threads = tf.train.start_queue_runners(coord=coord)
+        # a = list()
 
-#         for i in range(50000):
-#                 features, labels = sess.run([key,value])
-#                 val = decode_csv(labels)
-#                 a.append(val[0])
-#                 b.append(val[1])
+        for elem in file_queue_length:
+            print elem
+            for i in range(elem):
+                features, labels = sess.run([key,value])
+                # val = decode_csv(labels)
+                # a.append(val[0])
+                # b.append(val[1])
 
-#         np.save('/home/mtb/test',np.array(a))
-#         coord.request_stop()
-#         coord.join(threads)
+        # np.save('/home/mtb/test',np.array(a))
+        coord.request_stop()
+        coord.join(threads)
                
        
