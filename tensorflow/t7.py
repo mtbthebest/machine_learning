@@ -18,33 +18,33 @@ file_queue_length= [53567, 41820,94691,41931,44887,54483,57915,54964,80191,14271
 
 
 
-# def convert_str_to_float(val):
-#     elem_list = deque()
-#     for elem in val:
-#         elem_list.append(float(elem))
-#     return elem_list     
+def convert_str_to_float(val):
+    elem_list = deque()
+    for elem in val:
+        elem_list.append(float(elem))
+    return elem_list     
     
 
 
-# def convert_to_np(val_list, index):
-#     data = OrderedDict()
-#     # data = val_list[3][7:-1].split(',')
-#     # print len(data)
-#     data['inputs'] = np.asarray(convert_str_to_float(val_list[index[0]][1:-1].split(',')), dtype=np.float) 
-#     data['outputs'] = np.asarray(convert_str_to_float(val_list[index[1]][7:-2].split(',')), dtype=np.float)
-#     return data
+def convert_to_np(val_list, index):
+    data = OrderedDict()
+    # data = val_list[3][7:-1].split(',')
+    # print len(data)
+    data['inputs'] = np.asarray(convert_str_to_float(val_list[index[0]][1:-1].split(',')), dtype=np.float) 
+    data['outputs'] = np.asarray(convert_str_to_float(val_list[index[1]][7:-2].split(',')), dtype=np.float)
+    return data
    
-# def decode_csv(value):
+def decode_csv(value):
 
-#     index = []
-#     extract_data = value.split('"')
-#     for elem in extract_data :
-#         if len(elem)>1:
-#             index.append(extract_data.index(elem))
-#     [input_index, output_index] = index
-#     # in_, out = convert_to_np(extract_data, index)
-#     in_, out = convert_to_np(extract_data, index).values()
-#     return in_, out
+    index = []
+    extract_data = value.split('"')
+    for elem in extract_data :
+        if len(elem)>1:
+            index.append(extract_data.index(elem))
+    [input_index, output_index] = index
+    
+    in_, out = convert_to_np(extract_data, index).values()
+    return in_, out
 
 
 
@@ -52,25 +52,23 @@ filename_queue = tf.train.string_input_producer(filename)
 line_reader = tf.TextLineReader(skip_header_lines=1)
 key, value = line_reader.read(filename_queue)
 
-# record_defaults = [[0.0], [0.0]]
-
-# inputs, outputs = tf.decode_csv(records=value, record_defaults= record_defaults)
 if __name__ == '__main__':
     with tf.Session() as sess:
         tf.global_variables_initializer().run()
         coord = tf.train.Coordinator()
         threads = tf.train.start_queue_runners(coord=coord)
-        # a = list()
-
-        for elem in file_queue_length:
-            print elem
-            for i in range(elem):
+       
+        input_list = []
+        output_list =[]
+        for elem in range(sum(file_queue_length)):
                 features, labels = sess.run([key,value])
-                # val = decode_csv(labels)
-                # a.append(val[0])
-                # b.append(val[1])
+                print features
+                val = decode_csv(labels)
+                input_list.append(val[0])
+                output_list.append(val[1])
 
-        # np.save('/home/mtb/test',np.array(a))
+        np.save('/home/mtb/input',np.array(input_list))
+        np.save('/home/mtb/output',np.array(output_list))
         coord.request_stop()
         coord.join(threads)
                
