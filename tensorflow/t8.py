@@ -7,17 +7,17 @@ from tensorflow.contrib.data import Dataset, Iterator
 import numpy as np
 from collections import deque, OrderedDict
 
-DIR = '/home/mtb/Documents/data/train/inputs.npy'
+DIR = '/home/mtb/Documents/data/train/'
 
 filename = DIR
-input_=np.load(DIR)
-# input_ = np.array([[1,2,3.0],[4.0,5.0,6.0], [7.0,8.0,9.0],[10.0,11.0,12.0]])
-# output_ = np.array([[1,2,3.0],[4.0,5.0,6.0]])
+# input_=np.load(DIR + 'input.npy')
+
+output_ = np.load(DIR + 'output.npy')
 
 input_placeholder = tf.placeholder(tf.float32, shape =None)
 # output_placeholder = tf.placeholder(tf.float32, shape = output_.shape)
 a =Dataset.from_tensors(input_placeholder)
-# b = Dataset.from_tensors(output_placeholder)
+b = Dataset.from_tensors(output_placeholder)
 # c = Dataset.zip((a,b))
 # batch_ = a.batch(100)
 iterator=a.make_initializable_iterator()
@@ -46,11 +46,11 @@ with tf.Session() as sess:
                 input_dict[str(k)].append(input_[i])
        
     
-    
-    sess.run(iterator.initializer, {input_placeholder:input_dict[str(1)]}) 
+    print output_.shape
+    # sess.run(iterator.initializer, {input_placeholder:input_dict[str(1)]}) 
 
-    a =  sess.run(next_elem, {input_placeholder:input_dict[str(1)]})
-    print a
+    # a =  sess.run(next_elem, {input_placeholder:input_dict[str(1)]})
+    # print a
     
 
     
