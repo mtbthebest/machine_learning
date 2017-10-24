@@ -9,12 +9,11 @@ from collections import deque, OrderedDict
 
 DIR = '/home/mtb/test.npy'
 
-<<<<<<< HEAD
 # a = np.asarray([1,2,3,4,5,6])
 # np.save(DIR, a)
 # b =np.load(DIR)
 # print b.shape
-=======
+
 filename = DIR
 # input_=np.load(DIR + 'input.npy')
 
@@ -61,5 +60,5 @@ with tf.Session() as sess:
     
 
     
->>>>>>> master
+
 
