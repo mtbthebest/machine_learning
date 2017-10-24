@@ -47,6 +47,7 @@ with tf.Session() as sess:
        
     
     print output_.shape
+    ki
     # sess.run(iterator.initializer, {input_placeholder:input_dict[str(1)]}) 
 
     # a =  sess.run(next_elem, {input_placeholder:input_dict[str(1)]})
