@@ -83,9 +83,9 @@ with tf.Session(graph=tf_graph) as sess:
     sess.run([init])
     summary_writer = tf.summary.FileWriter(logdir=SUM_DIR, graph=tf_graph)    
     
-    if os.path.isfile('./mnist_tens/checkpoint'):
-        print 'Restoring'
-        saver.restore(sess,TRAIN_DIR)
+    # if os.path.isfile('./mnist_tens/checkpoint'):
+    #     print 'Restoring'
+    #     saver.restore(sess,TRAIN_DIR)
     
        
     
@@ -107,7 +107,7 @@ with tf.Session(graph=tf_graph) as sess:
             print ('Iterations %d, loss: %.6f'%(total_iterations, cost_function))
         
         print('Saving epoch {0}'.format(epoch))
-        saver.save(sess,'./mnist_tens/mynew.ckpt')
+        # saver.save(sess,'./mnist_tens/mynew.ckpt')
      
           
             # print W
