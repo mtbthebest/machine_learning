@@ -3,5 +3,6 @@
     "python.autoComplete.preloadModules": [],
     "python.autoComplete.extraPaths": ["/home/mtb/ml/lib/python2.7"],
     "python.venvPath": "/home/mtb/ml",
-    "python.linting.pylintEnabled": false
+    "python.linting.pylintEnabled": false,
+    "python.pythonPath": "/home/mtb/ml/local/bin/python"
 }

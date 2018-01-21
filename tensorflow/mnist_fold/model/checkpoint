@@ -1,0 +1,2 @@
+model_checkpoint_path: "/home/mtb/Projects/machine_learning/tensorflow/mnist_fold/model/model.ckpt"
+all_model_checkpoint_paths: "/home/mtb/Projects/machine_learning/tensorflow/mnist_fold/model/model.ckpt"
